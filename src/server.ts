@@ -4,12 +4,15 @@ import nunjucks from "nunjucks";
 
 const app = express();
 
+const pagesPath = join(__dirname, "pages");
+const componentsPath = join(__dirname, "components");
+
 app.use(express.static(join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.set("view engine", "njk");
-nunjucks.configure("src/views", {
+nunjucks.configure([pagesPath, componentsPath], {
   autoescape: true,
   express: app,
 });
