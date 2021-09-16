@@ -7,9 +7,12 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
+    <link rel="stylesheet" href="css/styles-header.css" />
+    <link rel="stylesheet" href="css/styles-product.css" />
     <title>{{ title }}</title>
   </head>
   <body>
-    {% block content %} {% endblock %}
+    {% include "../components/Header.njk" %} {% block content %} {%
+    endblock %}
   </body>
 </html>
