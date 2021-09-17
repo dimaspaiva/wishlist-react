@@ -66,12 +66,15 @@ export const WishTag = styled.div`
   }
 
   .product__wish-tag-icon {
-    margin-left: 6px;
-    position: relative;
-    top: -12px;
   }
 `;
 
 export const ProductImageContainer = styled.div`
   width: 100%;
+`;
+
+export const WishIconContainer = styled.div`
+  margin-left: 6px;
+  position: relative;
+  top: -12px;
 `;

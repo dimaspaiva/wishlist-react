@@ -43,11 +43,6 @@ export const HeaderContainer = styled.div`
     float: right;
   }
 
-  .action__icon {
-    display: inline-block;
-    margin-right: 8px;
-  }
-
   .action__text {
     display: inline-block;
   }
@@ -63,7 +58,7 @@ export const HeaderContainer = styled.div`
   .header__search-input {
     border: none;
     float: left;
-    min-width: 784px;
+    min-width: 720px;
     background: none;
     color: #4d4d4d;
     font-size: 24px;
@@ -71,15 +66,20 @@ export const HeaderContainer = styled.div`
     outline-width: 0;
   }
 
-  .header__search-icon {
-    float: left;
-    margin-top: 2px;
-    margin-right: 16px;
-  }
-
   @media screen and (min-width: 1500px) {
     .action--middle {
       margin-left: 25%;
     }
   }
+`;
+
+export const IconContainer = styled.div`
+  padding-right: 8px;
+  display: inline-block;
+`;
+
+export const SearchIconContainer = styled.div`
+  float: left;
+  margin-top: 2px;
+  margin-right: 16px;
 `;

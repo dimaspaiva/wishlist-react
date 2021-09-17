@@ -1,4 +1,5 @@
 import React from "react";
+import { Heart } from "react-feather";
 import { ProductProps } from "./Product";
 
 import {
@@ -6,6 +7,7 @@ import {
   ProductContainer,
   ProductImageContainer,
   WishTag,
+  WishIconContainer,
 } from "./styles";
 
 const Product = (props: ProductProps) => {
@@ -13,11 +15,9 @@ const Product = (props: ProductProps) => {
   return (
     <ProductContainer>
       <WishTag className="clearfix">
-        <img
-          className="product__wish-tag-icon"
-          src="./icons/heart.svg"
-          alt=""
-        />
+        <WishIconContainer>
+          <Heart fill="#eaeaea" />
+        </WishIconContainer>
       </WishTag>
       <ProductContent>
         <ProductImageContainer>

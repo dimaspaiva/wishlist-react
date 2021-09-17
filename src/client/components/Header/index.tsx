@@ -1,6 +1,13 @@
 import React from "react";
 
-import { HeaderBackground, HeaderContainer } from "./styles";
+import { MapPin, Phone, Heart, Search } from "react-feather";
+
+import {
+  HeaderBackground,
+  HeaderContainer,
+  IconContainer,
+  SearchIconContainer,
+} from "./styles";
 
 const Header = () => {
   return (
@@ -13,36 +20,29 @@ const Header = () => {
         <div className="header__action-container">
           <div className="header__actions-list clearfix">
             <div className="header__action action--first">
-              <img
-                src="./icons/map-pin.svg"
-                alt="icon"
-                className="action__icon"
-              />
+              <IconContainer>
+                <MapPin color="#eaeaea" />
+              </IconContainer>
               <h3 className="action__text">Cidade: São Paulo</h3>
             </div>
             <div className="header__action action--middle">
-              <img
-                src="./icons/phone.svg"
-                alt="icon"
-                className="action__icon"
-              />
+              <IconContainer>
+                <Phone fill="#eaeaea" />
+              </IconContainer>
               <h3 className="action__text">Central de atendimento</h3>
             </div>
             <div className="header__action action--last">
-              <img
-                src="./icons/heart.svg"
-                alt="icon"
-                className="action__icon"
-              />
+              <IconContainer>
+                <Heart fill="#eaeaea" />
+              </IconContainer>
               <h3 className="action__text">Lista de desejos</h3>
             </div>
           </div>
           <div className="header__search-container clearfix">
-            <img
-              className="header__search-icon"
-              alt="icon"
-              src="./icons/search.svg"
-            />
+            <SearchIconContainer>
+              <Search color="#424242" />
+            </SearchIconContainer>
+
             <input
               type="text"
               name="search-box"
