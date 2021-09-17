@@ -20,6 +20,7 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
+  watch: true,
   output: {
     filename: "client.js",
     path: path.resolve(__dirname, "build", "public", "js"),

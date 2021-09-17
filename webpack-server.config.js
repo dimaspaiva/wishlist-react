@@ -26,7 +26,6 @@ module.exports = {
       patterns: [
         { from: "src/server/public", to: "public" },
         { from: "src/server/pages", to: "pages" },
-        { from: "src/server/components", to: "components" },
       ],
     }),
   ],
