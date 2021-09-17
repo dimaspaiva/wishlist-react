@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/client/app.tsx",
+  entry: "./src/client/index.tsx",
   mode: "development",
   target: "node",
   module: {

@@ -1,9 +1,13 @@
-import ReactDOM from "react-dom";
 import React from "react";
+import { WishlistProvider } from "./Providers/wishlist";
 import Routes from "./routes";
 
 const App = () => {
-  return <Routes />;
+  return (
+    <WishlistProvider>
+      <Routes />;
+    </WishlistProvider>
+  );
 };
 
-ReactDOM.render(<App />, document.getElementById("app"));
+export default App;

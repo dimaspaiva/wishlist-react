@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Loading from "../../components/Loading";
 import Product from "../../components/Product";
+import { useWishlist } from "../../Providers/wishlist";
 import { requestData } from "../../services/api";
 
 import { ProductType } from "./Home";
@@ -11,11 +12,22 @@ const SearchPage = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [loading, setLoading] = useState(false);
 
+  const { wishlist, setWishList } = useWishlist();
+
+  const updateProducts = (newProducts: ProductType[]) => {
+    const wishedProducts = wishlist.map((product) => product.id);
+    return newProducts.map((product) => ({
+      ...product,
+      isWish: wishedProducts.includes(product.id),
+    }));
+  };
+
   useEffect(() => {
     setLoading(true);
     requestData().then((data: { products: ProductType[] }) => {
       setLoading(false);
-      setProducts(data.products);
+      const updatedProducts = updateProducts(data.products);
+      setProducts(updatedProducts);
     });
   }, []);
 
@@ -29,7 +41,9 @@ const SearchPage = () => {
     );
   };
 
-  console.log(products);
+  useEffect(() => {
+    setWishList(products.filter((product) => product.isWish));
+  }, [products]);
 
   return (
     <div>
