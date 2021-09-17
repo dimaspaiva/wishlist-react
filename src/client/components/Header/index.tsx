@@ -1,9 +1,11 @@
 import React from "react";
 
+import { HeaderBackground, HeaderContainer } from "./styles";
+
 const Header = () => {
   return (
-    <div className="header">
-      <div className="header-container clearfix">
+    <HeaderBackground>
+      <HeaderContainer className="clearfix">
         <div className="header__logo-container">
           <h1 className="header__logo-title">MagaNets</h1>
         </div>
@@ -49,8 +51,8 @@ const Header = () => {
             />
           </div>
         </div>
-      </div>
-    </div>
+      </HeaderContainer>
+    </HeaderBackground>
   );
 };
 
