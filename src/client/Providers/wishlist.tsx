@@ -1,20 +1,14 @@
 import React, {
   createContext,
-  Dispatch,
-  SetStateAction,
   useContext,
   useEffect,
   useState,
 } from "react";
 import { ProductType } from "../Pages/Home/Home";
+import { WishlistContextType } from "./wishlist-type";
 
-export type WishContextType = {
-  wishlist: ProductType[];
-  setWishList: Dispatch<SetStateAction<ProductType[]>>;
-};
-
-export const WishlistContext = createContext<WishContextType>(
-  {} as WishContextType
+export const WishlistContext = createContext<WishlistContextType>(
+  {} as WishlistContextType
 );
 
 export const WishlistProvider: React.FC = (props) => {

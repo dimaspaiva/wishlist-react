@@ -6,7 +6,7 @@ import Product from "../../components/Product";
 import { useWishlist } from "../../Providers/wishlist";
 import { requestData } from "../../services/api";
 
-import { ProductType } from "./Home";
+import { FetchedData, ProductType } from "./Home";
 
 const SearchPage = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -14,7 +14,7 @@ const SearchPage = () => {
 
   const { wishlist, setWishList } = useWishlist();
 
-  const updateOnFetchProducts = (newProducts: ProductType[]) => {
+  const mergeFetchedWithWishlist = (newProducts: ProductType[]) => {
     const wishedProducts = wishlist.map((product) => product.id);
     return newProducts.map((product) => ({
       ...product,
@@ -22,14 +22,21 @@ const SearchPage = () => {
     }));
   };
 
+  const updateProducts = ({ products: newProducts }: FetchedData) => {
+    const updatedProducts = mergeFetchedWithWishlist(newProducts);
+    setProducts(updatedProducts);
+  };
+
+  const handleFetchData = async () => {
+    const data = (await requestData()) as FetchedData;
+    updateProducts(data);
+    setLoading(false);
+  };
+
   useEffect(() => {
     if (products.length === 0) {
       setLoading(true);
-      requestData().then((data: { products: ProductType[] }) => {
-        setLoading(false);
-        const updatedProducts = updateOnFetchProducts(data.products);
-        setProducts(updatedProducts);
-      });
+      handleFetchData();
     }
   }, [wishlist]);
 

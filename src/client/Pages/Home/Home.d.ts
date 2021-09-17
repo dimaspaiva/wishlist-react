@@ -11,3 +11,7 @@ export type ProductType = {
   };
   isWish?: boolean;
 };
+
+export type FetchedData = {
+  products: ProductType[];
+};
