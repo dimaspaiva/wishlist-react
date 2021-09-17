@@ -19,6 +19,16 @@ const SearchPage = () => {
     });
   }, []);
 
+  const handleDefineWish = (id: number) => {
+    setProducts((productsState) =>
+      productsState.map((product) =>
+        product.id === id
+          ? { ...product, isWish: !product.isWish }
+          : product
+      )
+    );
+  };
+
   console.log(products);
 
   return (
@@ -30,7 +40,11 @@ const SearchPage = () => {
           <Loading />
         ) : (
           products.map((product) => (
-            <Product key={`${product.id}`} product={product} />
+            <Product
+              key={`${product.id}`}
+              product={product}
+              defineWish={handleDefineWish}
+            />
           ))
         )}
       </div>

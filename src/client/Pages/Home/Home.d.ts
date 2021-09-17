@@ -9,4 +9,5 @@ export type ProductType = {
   avaibleSizes: {
     [key: string]: number;
   };
+  isWish?: boolean;
 };

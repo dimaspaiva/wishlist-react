@@ -11,12 +11,16 @@ import {
 } from "./styles";
 
 const Product = (props: ProductProps) => {
-  const { product } = props;
+  const { product, defineWish } = props;
+
   return (
     <ProductContainer>
-      <WishTag className="clearfix">
+      <WishTag className="clearfix" onClick={() => defineWish(product.id)}>
         <WishIconContainer>
-          <Heart fill="#eaeaea" />
+          <Heart
+            color="none"
+            fill={product.isWish ? "#CF251F" : "#eaeaea"}
+          />
         </WishIconContainer>
       </WishTag>
       <ProductContent>
