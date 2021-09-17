@@ -48,6 +48,10 @@ export const WishTag = styled.div`
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 
+  :hover {
+    cursor: pointer;
+  }
+
   ::before {
     content: "";
     display: block;

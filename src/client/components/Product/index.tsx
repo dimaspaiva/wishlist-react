@@ -1,4 +1,5 @@
 import React from "react";
+import { ProductProps } from "./Product";
 
 import {
   ProductContent,
@@ -7,7 +8,8 @@ import {
   WishTag,
 } from "./styles";
 
-const Product = () => {
+const Product = (props: ProductProps) => {
+  const { product } = props;
   return (
     <ProductContainer>
       <WishTag className="clearfix">
@@ -21,13 +23,13 @@ const Product = () => {
         <ProductImageContainer>
           <img
             className="product-image"
-            src="https://f.i.uol.com.br/fotografia/2021/01/25/1611607387600f2d5bbbb86_1611607387_3x2_md.jpg"
+            src={product.image}
             alt="product"
           />
         </ProductImageContainer>
 
-        <h3 className="product-name">Teste</h3>
-        <h2 className="product-price">R$ 4,00</h2>
+        <h3 className="product-name">{product.title}</h3>
+        <h2 className="product-price">R$ {product.price}</h2>
       </ProductContent>
     </ProductContainer>
   );
