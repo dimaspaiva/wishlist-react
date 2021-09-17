@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import Header from "../../components/Header";
 import Loading from "../../components/Loading";
+import PageContainer from "../../components/PageContainer";
 import Product from "../../components/Product";
 import { useWishlist } from "../../Providers/wishlist";
 import { requestData } from "../../services/api";
@@ -14,7 +14,7 @@ const SearchPage = () => {
 
   const { wishlist, setWishList } = useWishlist();
 
-  const updateProducts = (newProducts: ProductType[]) => {
+  const updateOnFetchProducts = (newProducts: ProductType[]) => {
     const wishedProducts = wishlist.map((product) => product.id);
     return newProducts.map((product) => ({
       ...product,
@@ -23,15 +23,17 @@ const SearchPage = () => {
   };
 
   useEffect(() => {
-    setLoading(true);
-    requestData().then((data: { products: ProductType[] }) => {
-      setLoading(false);
-      const updatedProducts = updateProducts(data.products);
-      setProducts(updatedProducts);
-    });
-  }, []);
+    if (products.length === 0) {
+      setLoading(true);
+      requestData().then((data: { products: ProductType[] }) => {
+        setLoading(false);
+        const updatedProducts = updateOnFetchProducts(data.products);
+        setProducts(updatedProducts);
+      });
+    }
+  }, [wishlist]);
 
-  const handleDefineWish = (id: number) => {
+  const updateProductsState = (id: number) => {
     setProducts((productsState) =>
       productsState.map((product) =>
         product.id === id
@@ -41,28 +43,39 @@ const SearchPage = () => {
     );
   };
 
-  useEffect(() => {
-    setWishList(products.filter((product) => product.isWish));
-  }, [products]);
+  const updateWishlistState = (id: number) => {
+    const wishProductsIds = wishlist.map((product) => product.id);
+    if (wishProductsIds.includes(id)) {
+      return setWishList(wishlist.filter((product) => product.id !== id));
+    }
+    setWishList([
+      ...wishlist,
+      {
+        ...products.filter((product) => product.id === id)[0],
+        isWish: true,
+      },
+    ]);
+  };
+
+  const handleDefineWish = (id: number) => {
+    updateProductsState(id);
+    updateWishlistState(id);
+  };
 
   return (
-    <div>
-      <Header />
-      <div className="content-container">
-        <h1 className="page-title">Home</h1>
-        {loading ? (
-          <Loading />
-        ) : (
-          products.map((product) => (
-            <Product
-              key={`${product.id}`}
-              product={product}
-              defineWish={handleDefineWish}
-            />
-          ))
-        )}
-      </div>
-    </div>
+    <PageContainer title="Home">
+      {loading ? (
+        <Loading />
+      ) : (
+        products.map((product) => (
+          <Product
+            key={`${product.id}`}
+            product={product}
+            defineWish={handleDefineWish}
+          />
+        ))
+      )}
+    </PageContainer>
   );
 };
 

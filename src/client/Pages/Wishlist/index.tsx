@@ -1,6 +1,6 @@
 import React from "react";
 
-import Header from "../../components/Header";
+import PageContainer from "../../components/PageContainer";
 import Product from "../../components/Product";
 import { useWishlist } from "../../Providers/wishlist";
 
@@ -12,20 +12,15 @@ const HomePage = () => {
   };
 
   return (
-    <div>
-      <Header />
-      <div className="content-container">
-        <h1 className="page-title">Wishlist</h1>
-
-        {wishlist.map((product) => (
-          <Product
-            key={`${product.id}`}
-            product={product}
-            defineWish={() => removeWish(product.id)}
-          />
-        ))}
-      </div>
-    </div>
+    <PageContainer title="Wishlist">
+      {wishlist.map((product) => (
+        <Product
+          key={`${product.id}`}
+          product={product}
+          defineWish={() => removeWish(product.id)}
+        />
+      ))}
+    </PageContainer>
   );
 };
 
