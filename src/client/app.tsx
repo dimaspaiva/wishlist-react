@@ -1,9 +1,9 @@
 import ReactDOM from "react-dom";
 import React from "react";
-import SearchPage from "./Pages/Search";
+import Routes from "./routes";
 
 const App = () => {
-  return <SearchPage />;
+  return <Routes />;
 };
 
 ReactDOM.render(<App />, document.getElementById("app"));
