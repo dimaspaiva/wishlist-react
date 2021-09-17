@@ -16,7 +16,7 @@ nunjucks.configure([pagesPath], {
   express: app,
 });
 
-app.get("/", (req, res) => {
+app.get("/*", (req, res) => {
   res.render("template", {
     title: "magalu",
     message: "Running nunjucks!",
