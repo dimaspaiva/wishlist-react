@@ -11,6 +11,10 @@ module.exports = {
         use: "ts-loader",
         exclude: [/node_modules/],
       },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
+        type: "asset/resource",
+      },
     ],
   },
   resolve: {
