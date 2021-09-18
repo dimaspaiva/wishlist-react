@@ -1,15 +1,16 @@
 import React from "react";
 
 import Header from "../Header";
+import BreadCrumb from "../BreadCrumb";
 
-const PageContainer: React.FC<{ title: string }> = (props) => {
-  const { title, children } = props;
+const PageContainer: React.FC<{ path: string }> = (props) => {
+  const { path, children } = props;
 
   return (
     <div>
       <Header />
       <div className="content-container">
-        <h1 className="page-title">{title}</h1>
+        <BreadCrumb path={path}/>
         {children}
       </div>
     </div>

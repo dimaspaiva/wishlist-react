@@ -12,7 +12,7 @@ const HomePage = () => {
   };
 
   return (
-    <PageContainer title="Wishlist">
+    <PageContainer path="Home/Lista de desejos">
       {wishlist.map((product) => (
         <Product
           key={`${product.id}`}

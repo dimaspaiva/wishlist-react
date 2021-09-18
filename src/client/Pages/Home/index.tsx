@@ -70,7 +70,7 @@ const SearchPage = () => {
   };
 
   return (
-    <PageContainer title="Home">
+    <PageContainer path="Home">
       {loading ? (
         <Loading />
       ) : (
