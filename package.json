@@ -5,13 +5,20 @@
   "author": "dimas <dimasalpaiva@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.0",
     "@types/express": "^4.17.13",
+    "@types/jest": "^27.0.1",
     "@types/react": "^17.0.21",
     "@types/react-dom": "^17.0.9",
     "@types/react-router-dom": "^5.1.9",
     "@types/styled-components": "^5.1.14",
     "concurrently": "^6.2.1",
     "copy-webpack-plugin": "^9.0.1",
+    "eslint-plugin-jest": "^24.4.2",
     "jest": "^27.2.0",
     "nodemon": "^2.0.12",
     "ts-node": "^10.2.1",
@@ -32,6 +39,7 @@
   },
   "scripts": {
     "dev:win": "(webpack --config webpack-server.config.js) && concurrently  \"yarn webpack --config webpack-client.config.js\" \"yarn nodemon build\"",
-    "dev": "webpack --config webpack-server.config.js; concurrently  \"yarn webpack --config webpack-client.config.js\" \"yarn nodemon build\""
+    "dev": "webpack --config webpack-server.config.js; concurrently  \"yarn webpack --config webpack-client.config.js\" \"yarn nodemon build\"",
+    "test": "jest"
   }
 }
