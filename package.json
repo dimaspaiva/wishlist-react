@@ -12,6 +12,7 @@
     "@types/styled-components": "^5.1.14",
     "concurrently": "^6.2.1",
     "copy-webpack-plugin": "^9.0.1",
+    "jest": "^27.2.0",
     "nodemon": "^2.0.12",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.3",
@@ -30,6 +31,7 @@
     "ts-loader": "^9.2.5"
   },
   "scripts": {
-    "dev": "(webpack --config webpack-server.config.js) && concurrently  \"yarn webpack --config webpack-client.config.js\" \"yarn nodemon build\""
+    "dev:win": "(webpack --config webpack-server.config.js) && concurrently  \"yarn webpack --config webpack-client.config.js\" \"yarn nodemon build\"",
+    "dev": "webpack --config webpack-server.config.js; concurrently  \"yarn webpack --config webpack-client.config.js\" \"yarn nodemon build\""
   }
 }
