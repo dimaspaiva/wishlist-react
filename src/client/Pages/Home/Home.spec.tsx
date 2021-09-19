@@ -58,7 +58,7 @@ const product2 = testingProducts[1];
 
 describe("Home page", () => {
   it("should render the home page", async () => {
-    const { getByText } = render(
+    const { getByText, getAllByText } = render(
       <MemoryRouter>
         <Home />
       </MemoryRouter>
@@ -73,10 +73,13 @@ describe("Home page", () => {
     expect(getByText(`R$ ${product1.price}`)).toBeTruthy();
     expect(getByText(product2.title)).toBeTruthy();
     expect(getByText(`R$ ${product2.price}`)).toBeTruthy();
+
+    expect(getAllByText("Heart - #CF251F")).toHaveLength(1);
+    expect(getAllByText("Heart - #eaeaea")).toHaveLength(2); // one on product and another on header
   });
 
   it("should render the home page and select a product as wish", async () => {
-    const { getByText, getByTestId } = render(
+    const { getByText, getByTestId, queryByText } = render(
       <MemoryRouter>
         <Home />
       </MemoryRouter>
@@ -95,5 +98,6 @@ describe("Home page", () => {
     const wishButtonProduct1 = getByTestId(`wish-button${product1.id}`);
 
     act(() => wishButtonProduct1.click());
+    expect(queryByText("Heart - #CF251F")).toBeNull();
   });
 });
