@@ -13,7 +13,7 @@ import {
 const Header = () => {
   return (
     <HeaderBackground>
-      <HeaderContainer className="clearfix">
+      <HeaderContainer>
         <Link to="/">
           <div className="header__logo-container">
             <h1 className="header__logo-title">MagaNets</h1>

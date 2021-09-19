@@ -16,7 +16,6 @@ const Product = (props: ProductProps) => {
   return (
     <ProductContainer>
       <WishTag
-        className="clearfix"
         data-testid={`wish-button${product.id}`}
         onClick={() => defineWish(product.id)}
       >

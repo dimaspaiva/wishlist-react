@@ -2,38 +2,39 @@ import styled from "styled-components";
 
 export const ProductContainer = styled.div`
   display: inline-block;
-  margin: 12px;
+  margin: 1.271%;
+  width: 22.4576%;
 `;
 
 export const ProductContent = styled.div`
   border: solid 2px #d8d8d8;
-  width: 210px;
+  width: 100%;
+  min-height: 400px;
   border-radius: 8px;
   padding: 16px;
   text-align: center;
 
   .product-image {
-    height: 160px;
-    width: auto;
-    max-width: 180px;
+    width: 94%;
+    height: auto;
     resize: horizontal;
     margin: 0 auto;
     border-radius: 4px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 
   .product-name {
     font-size: 18px;
     color: #363636;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 
   .product-price {
     font-size: 18px;
     color: #edcb20;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 `;
 
