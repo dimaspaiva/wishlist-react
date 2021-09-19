@@ -11,7 +11,7 @@ describe("Page container", () => {
   it("should render a simple page", () => {
     const { getByText } = render(
       <MemoryRouter>
-        <PageContainer path="home/test">
+        <PageContainer path="home/test" setSearchTerm={jest.fn()}>
           <p>{testPageContent}</p>
         </PageContainer>
       </MemoryRouter>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import Loading from "../../components/Loading";
 import PageContainer from "../../components/PageContainer";
@@ -11,6 +11,7 @@ import { FetchedData, ProductType } from "./Home";
 const Home = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const { wishlist, setWishlist } = useWishlist();
 
@@ -67,12 +68,21 @@ const Home = () => {
     updateWishlistState(id);
   };
 
+  const searchProducts = useMemo(() => {
+    if (!searchTerm) {
+      return products;
+    }
+    return products.filter((product) =>
+      product.title.toUpperCase().match(searchTerm.toUpperCase())
+    );
+  }, [searchTerm, products]);
+
   return (
-    <PageContainer path="Home">
+    <PageContainer path="Home" setSearchTerm={setSearchTerm}>
       {loading ? (
         <Loading />
       ) : (
-        products.map((product) => (
+        searchProducts.map((product) => (
           <Product
             key={`${product.id}`}
             product={product}

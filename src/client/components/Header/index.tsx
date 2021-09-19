@@ -14,7 +14,9 @@ import {
   LogoContainer,
 } from "./styles";
 
-const Header = () => {
+const Header = (props: { setSearchTerm: (term: string) => void }) => {
+  const { setSearchTerm } = props;
+
   return (
     <HeaderBackground>
       <HeaderContainer>
@@ -57,6 +59,7 @@ const Header = () => {
               name="search-box"
               className="header__search-input"
               placeholder="Buscar"
+              onChange={(event) => setSearchTerm(event.target.value)}
             />
           </div>
         </div>

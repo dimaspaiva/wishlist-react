@@ -5,12 +5,15 @@ import BreadCrumb from "../BreadCrumb";
 
 import { ContentContainer } from "./styles";
 
-const PageContainer: React.FC<{ path: string }> = (props) => {
-  const { path, children } = props;
+const PageContainer: React.FC<{
+  path: string;
+  setSearchTerm: (term: string) => void;
+}> = (props) => {
+  const { path, setSearchTerm, children } = props;
 
   return (
     <div>
-      <Header />
+      <Header setSearchTerm={setSearchTerm} />
       <ContentContainer className="content-container">
         <BreadCrumb path={path} />
         {children}
