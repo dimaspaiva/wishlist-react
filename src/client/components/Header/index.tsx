@@ -8,40 +8,44 @@ import {
   HeaderContainer,
   IconContainer,
   SearchIconContainer,
+  ActionContainer,
+  ActionCenter,
+  ActionRight,
+  LogoContainer,
 } from "./styles";
 
 const Header = () => {
   return (
     <HeaderBackground>
       <HeaderContainer>
-        <Link to="/">
-          <div className="header__logo-container">
+        <LogoContainer className="clearfix">
+          <Link to="/">
             <h1 className="header__logo-title">MagaNets</h1>
-          </div>
-        </Link>
+          </Link>
+        </LogoContainer>
 
         <div className="header__action-container">
-          <div className="header__actions-list clearfix">
-            <div className="header__action action--first">
+          <div className="header__actions-list">
+            <ActionContainer>
               <IconContainer>
                 <MapPin color="#eaeaea" />
               </IconContainer>
               <h3 className="action__text">Cidade: São Paulo</h3>
-            </div>
-            <div className="header__action action--middle">
+            </ActionContainer>
+            <ActionCenter>
               <IconContainer>
                 <Phone fill="#eaeaea" />
               </IconContainer>
               <h3 className="action__text">Central de atendimento</h3>
-            </div>
-            <Link to="/wishlist">
-              <div className="header__action action--last">
+            </ActionCenter>
+            <ActionRight>
+              <Link to="/wishlist">
                 <IconContainer>
                   <Heart fill="#eaeaea" />
                 </IconContainer>
                 <h3 className="action__text">Lista de desejos</h3>
-              </div>
-            </Link>
+              </Link>
+            </ActionRight>
           </div>
           <div className="header__search-container clearfix">
             <SearchIconContainer>

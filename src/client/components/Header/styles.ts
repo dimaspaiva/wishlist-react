@@ -10,37 +10,17 @@ export const HeaderBackground = styled.div`
 export const HeaderContainer = styled.div`
   margin: 0 auto;
   padding: 34px 40px;
-  max-width: 1898px;
-
-  .header__logo-container {
-    float: left;
-    width: 28%;
-    height: 88px;
-  }
+  max-width: 1840px;
 
   .header__action-container {
-    float: right;
-    width: 72%;
+    display: inline-block;
+    width: 71%;
     height: 88px;
   }
 
   .header__action {
     font-size: 16px;
-    margin-top: 6px;
     display: inline-block;
-  }
-
-  .action--first {
-    float: left;
-  }
-
-  .action--middle {
-    float: left;
-    margin-left: 12.5%;
-  }
-
-  .action--last {
-    float: right;
   }
 
   .action__text {
@@ -48,7 +28,6 @@ export const HeaderContainer = styled.div`
   }
 
   .header__search-container {
-    clear: both;
     background: #eaeaea;
     padding: 8px 16px;
     border-radius: 8px;
@@ -57,20 +36,45 @@ export const HeaderContainer = styled.div`
 
   .header__search-input {
     border: none;
-    float: left;
-    min-width: 720px;
+    width: 90%;
     background: none;
     color: #4d4d4d;
     font-size: 24px;
     line-height: -2px;
     outline-width: 0;
   }
+`;
 
-  @media screen and (min-width: 1500px) {
-    .action--middle {
-      margin-left: 25%;
-    }
+export const LogoContainer = styled.div`
+  display: inline-block;
+  width: 26%;
+  height: 74px;
+
+  a {
+    text-decoration: none;
+    float: left;
   }
+`;
+
+export const ActionContainer = styled.p`
+  display: inline-block;
+  width: 30%;
+  margin-top: 6px;
+`;
+
+export const ActionCenter = styled.p`
+  display: inline-block;
+  text-align: center;
+  margin-top: 6px;
+  min-width: 230px;
+  width: 42.18%;
+`;
+
+export const ActionRight = styled.p`
+  display: inline-block;
+  width: 27%;
+  text-align: right;
+  margin-top: 6px;
 `;
 
 export const IconContainer = styled.div`
@@ -79,7 +83,7 @@ export const IconContainer = styled.div`
 `;
 
 export const SearchIconContainer = styled.div`
-  float: left;
+  display: inline-block;
   margin-top: 2px;
   margin-right: 16px;
 `;
