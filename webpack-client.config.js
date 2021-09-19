@@ -1,3 +1,4 @@
+const TerserPlugin = require("terser-webpack-plugin");
 const path = require("path");
 
 module.exports = {
@@ -24,5 +25,15 @@ module.exports = {
   output: {
     filename: "client.js",
     path: path.resolve(__dirname, "build", "public", "js"),
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          ie8: true,
+        },
+      }),
+    ],
   },
 };
