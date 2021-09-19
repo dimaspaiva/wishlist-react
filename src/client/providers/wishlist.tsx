@@ -1,9 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { ProductType } from "../Pages/Home/Home";
 import { WishlistContextType } from "./wishlist-type";
 
@@ -12,12 +7,12 @@ export const WishlistContext = createContext<WishlistContextType>(
 );
 
 export const WishlistProvider: React.FC = (props) => {
-  const [wishlist, setWishList] = useState<ProductType[]>([]);
+  const [wishlist, setWishlist] = useState<ProductType[]>([]);
 
   useEffect(() => {
     const savedWishlist = localStorage.getItem("wishlist");
     if (savedWishlist) {
-      setWishList(JSON.parse(savedWishlist));
+      setWishlist(JSON.parse(savedWishlist));
     }
   }, []);
 
@@ -28,7 +23,7 @@ export const WishlistProvider: React.FC = (props) => {
   console.log(wishlist);
 
   return (
-    <WishlistContext.Provider value={{ wishlist, setWishList }}>
+    <WishlistContext.Provider value={{ wishlist, setWishlist }}>
       {props.children}
     </WishlistContext.Provider>
   );

@@ -5,10 +5,10 @@ import Product from "../../components/Product";
 import { useWishlist } from "../../providers/wishlist";
 
 const Wishlist = () => {
-  const { wishlist, setWishList } = useWishlist();
+  const { wishlist, setWishlist } = useWishlist();
 
   const removeWish = (id: number) => {
-    setWishList(wishlist.filter((product) => product.id !== id));
+    setWishlist(wishlist.filter((product) => product.id !== id));
   };
 
   return (

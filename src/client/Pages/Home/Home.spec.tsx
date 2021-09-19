@@ -49,7 +49,7 @@ jest.mock("../../providers/wishlist", () => ({
         isWish: true,
       },
     ],
-    setWishlist: jest.fn(),
+    setWishlist: () => jest.fn(),
   }),
 }));
 

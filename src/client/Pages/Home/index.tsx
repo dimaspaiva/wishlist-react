@@ -12,7 +12,7 @@ const Home = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const { wishlist, setWishList } = useWishlist();
+  const { wishlist, setWishlist } = useWishlist();
 
   const mergeFetchedWithWishlist = (newProducts: ProductType[]) => {
     const wishedProducts = wishlist.map((product) => product.id);
@@ -51,9 +51,9 @@ const Home = () => {
   const updateWishlistState = (id: number) => {
     const wishProductsIds = wishlist.map((product) => product.id);
     if (wishProductsIds.includes(id)) {
-      return setWishList(wishlist.filter((product) => product.id !== id));
+      return setWishlist(wishlist.filter((product) => product.id !== id));
     }
-    setWishList([
+    setWishlist([
       ...wishlist,
       {
         ...products.filter((product) => product.id === id)[0],
