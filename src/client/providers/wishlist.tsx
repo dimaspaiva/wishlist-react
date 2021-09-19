@@ -20,8 +20,6 @@ export const WishlistProvider: React.FC = (props) => {
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
   }, [wishlist]);
 
-  console.log(wishlist);
-
   return (
     <WishlistContext.Provider value={{ wishlist, setWishlist }}>
       {props.children}
