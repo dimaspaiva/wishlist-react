@@ -15,21 +15,18 @@ const Product = (props: ProductProps) => {
 
   return (
     <ProductContainer>
-      <WishTag className="clearfix" onClick={() => defineWish(product.id)}>
+      <WishTag
+        className="clearfix"
+        data-testid={`wish-button${product.id}`}
+        onClick={() => defineWish(product.id)}
+      >
         <WishIconContainer>
-          <Heart
-            color="none"
-            fill={product.isWish ? "#CF251F" : "#eaeaea"}
-          />
+          <Heart color="none" fill={product.isWish ? "#CF251F" : "#eaeaea"} />
         </WishIconContainer>
       </WishTag>
       <ProductContent>
         <ProductImageContainer>
-          <img
-            className="product-image"
-            src={product.image}
-            alt="product"
-          />
+          <img className="product-image" src={product.image} alt="product" />
         </ProductImageContainer>
 
         <h3 className="product-name">{product.title}</h3>
