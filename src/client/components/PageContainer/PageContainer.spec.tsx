@@ -11,13 +11,15 @@ describe("Page container", () => {
   it("should render a simple page", () => {
     const { getByText } = render(
       <MemoryRouter>
-        <PageContainer path="home">
+        <PageContainer path="home/test">
           <p>{testPageContent}</p>
         </PageContainer>
       </MemoryRouter>
     );
 
     expect(getByText("home")).toBeTruthy();
+    expect(getByText("test")).toBeTruthy();
     expect(getByText(testPageContent)).toBeTruthy();
+    expect(getByText("Cidade: São Paulo")).toBeTruthy();
   });
 });
