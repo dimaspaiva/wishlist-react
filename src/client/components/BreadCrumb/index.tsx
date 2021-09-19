@@ -7,8 +7,8 @@ const BreadCrumb = (props: { path: string }) => {
   return (
     <h3>
       {steps.map((step, index) => (
-        <span>
-          <Crumb key={step}>{step}</Crumb>
+        <span key={step}>
+          <Crumb>{step}</Crumb>
           {index < steps.length - 1 && <Crumb>{">"}</Crumb>}
         </span>
       ))}
