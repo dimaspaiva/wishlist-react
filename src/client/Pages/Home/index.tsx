@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import Loading from "../../components/Loading";
 import PageContainer from "../../components/PageContainer";
 import Product from "../../components/Product";
-import { useWishlist } from "../../Providers/wishlist";
+import { useWishlist } from "../../providers/wishlist";
 import { requestData } from "../../services/api";
 
 import { FetchedData, ProductType } from "./Home";
 
-const SearchPage = () => {
+const Home = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -43,9 +43,7 @@ const SearchPage = () => {
   const updateProductsState = (id: number) => {
     setProducts((productsState) =>
       productsState.map((product) =>
-        product.id === id
-          ? { ...product, isWish: !product.isWish }
-          : product
+        product.id === id ? { ...product, isWish: !product.isWish } : product
       )
     );
   };
@@ -86,4 +84,4 @@ const SearchPage = () => {
   );
 };
 
-export default SearchPage;
+export default Home;

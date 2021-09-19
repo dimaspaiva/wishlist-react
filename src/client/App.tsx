@@ -1,5 +1,5 @@
 import React from "react";
-import { WishlistProvider } from "./Providers/wishlist";
+import { WishlistProvider } from "./providers/wishlist";
 import Routes from "./routes";
 
 const App = () => {

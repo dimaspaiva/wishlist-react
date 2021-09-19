@@ -2,9 +2,9 @@ import React from "react";
 
 import PageContainer from "../../components/PageContainer";
 import Product from "../../components/Product";
-import { useWishlist } from "../../Providers/wishlist";
+import { useWishlist } from "../../providers/wishlist";
 
-const HomePage = () => {
+const Wishlist = () => {
   const { wishlist, setWishList } = useWishlist();
 
   const removeWish = (id: number) => {
@@ -24,4 +24,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Wishlist;
